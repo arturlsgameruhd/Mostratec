@@ -688,7 +688,7 @@ def get_api_key() -> str:
 
 
 def get_model() -> str:
-    return st.session_state.get("gemini_model", "gemini-3.8-flash").strip() or "gemini-3.8-flash"
+    return st.session_state.get("gemini_model", "gemini-3.1-flash-lite").strip() or "gemini-3.1-flash-lite"
 
 
 def astra_system_prompt(u: dict) -> str:
@@ -950,7 +950,7 @@ def render_sidebar(u: dict) -> None:
         with st.expander("🔑 Gemini API"):
             st.text_input("Chave da API", type="password", key="api_key_input",
                           help="Também pode vir de GEMINI_API_KEY (ambiente ou secrets.toml).")
-            st.text_input("Modelo", value="gemini-3.8-flash", key="gemini_model")
+            st.text_input("Modelo", value="gemini-3.1-flash-lite", key="gemini_model")
             st.caption("Com chave configurada: ✅" if get_api_key() else "Sem chave: o tutor funciona em modo offline.")
         if st.button("Sair"):
             for k in list(st.session_state.keys()):
